@@ -1,0 +1,45 @@
+/**
+ * @description element-plus样式扩展
+ 
+ */
+// menu样式扩展
+// 使用flex布局的menu,垂直时使用
+.menu--flex-column {
+  display: flex;
+  flex-direction: column;
+
+  .el-menu-item,
+  .el-menu-item-group,
+  .el-sub-menu {
+    flex: 0 0 auto;
+  }
+
+  // group标题左右padding一致
+  .menu-item-group--banlance-title {
+    .el-menu-item-group__title {
+      padding: 0px calc(var(--el-menu-base-level-padding) + var(--el-menu-level) * var(--el-menu-level-padding));
+    }
+  }
+
+  // 弹性group
+  .menu-item-group--shrunk {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+
+    .el-menu-item-group__title {
+      flex: 0 0 auto;
+      padding: 0px calc(var(--el-menu-base-level-padding) + var(--el-menu-level) * var(--el-menu-level-padding));
+    }
+
+    >ul {
+      flex: 1 1 0;
+      overflow: auto;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

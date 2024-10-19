@@ -1,0 +1,12 @@
+// flex布局混合
+@mixin flex($justify-content: flex-start, $align-items: stretch, $wrap: nowrap) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $wrap;
+}
+
+// flex居中
+@mixin flex-center {
+  @include flex(center, center);
+}

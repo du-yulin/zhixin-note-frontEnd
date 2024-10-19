@@ -1,0 +1,21 @@
+// 适配不同设备的媒体查询混合
+
+$device-map: (
+  phone: (0 576px),
+  tablet: (576px 992px),
+  pc: 992px,
+
+);
+@mixin respon-to($device){
+  $device-size: map-get($device-map, $device);
+  @if type-of($device-size) == "list" {
+    @media (min-width: nth($device-size, 1)) and (max-width: nth($device-size, 2)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $device-size) {
+      @content;
+    }
+  }
+}
+
